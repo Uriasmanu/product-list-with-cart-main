@@ -1,7 +1,8 @@
 <template>
   <div class="inicial-page">
     <div class="alimentos">
-      <h1>Desserts</h1>
+      <h1>Sobremesas</h1>
+      <BotaoAdicionar></BotaoAdicionar>
     </div>
     <div class="carrinho">
       <CarrinhoCompras></CarrinhoCompras>
@@ -10,12 +11,14 @@
 </template>
 
 <script>
+import BotaoAdicionar from '@/components/BotaoAdicionar/BotaoAdicionar.vue';
 import CarrinhoCompras from '@/components/CarrinhoCompras/CarrinhoCompras.vue';
 
 export default {
   name: 'InicialPage',
   components: {
-    CarrinhoCompras
+    CarrinhoCompras,
+    BotaoAdicionar
   }
 }
 </script>

@@ -1,9 +1,9 @@
 <template>
     <div class="container-carrinho">
-        <h3>Your Card(0)</h3>
+        <h3>Seu Carrinho(0)</h3>
         <div class="infos">
             <img src="../../assets/images/illustration-empty-cart.svg" alt="">
-            <p>Your added items will apper here</p>
+            <p>Seus itens adicionados aparecerão aqui</p>
         </div>
     </div>
 </template>
