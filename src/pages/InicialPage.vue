@@ -41,6 +41,6 @@ export default {
 
 <style lang="scss" scoped>
 @import './_InicialPage'; 
-@import './_inicialpageMobile.scss';
+@import './_InicialPageMobile';
 </style>
 
