@@ -1,5 +1,5 @@
 <template>
-    <div v-if="!ativo" class="container-botao-adicionar" @click="ativarBotao">
+    <div v-if="ativo" class="container-botao-adicionar" @click="ativarBotao">
         <img src="../../assets/images/icon-add-to-cart.svg" alt="icone de carrinho">
         <p>Adicionar</p>
     </div>
@@ -19,13 +19,13 @@ export default {
     data() {
         return {
             valor: 1,
-            ativo: false
+            ativo: true
         }
     },
 
     methods: {
         ativarBotao() {
-            this.ativo = true
+            this.ativo = false
         },
 
         adicionar() {
@@ -37,7 +37,7 @@ export default {
                 this.valor--;
 
             } else {
-                this.ativo = false;
+                this.ativo = true;
             }
         }
 
