@@ -5,19 +5,54 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  width: 19rem;
+  width: 20rem;
   height: auto;
   gap: 30px;
+  display: none;
 
   h3 {
     color: hsl(14, 86%, 42%);
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
   .infos {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    img {
+      width: 100px;
+      height: auto;
+    }
+
+    p {
+      color: hsl(14, 65%, 9%);
+      font-size: .7rem;
+    }
+  }
+}
+
+.container-carrinho-itens {
+  background: hsl(20, 50%, 98%);
+  padding: 10%;
+  border-radius: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  height: auto;
+  gap: 12px;
+
+
+  h3 {
+    color: hsl(14, 86%, 42%);
+    font-size: 1.5rem;
+  }
+
+  .infos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 
     img {
       width: 100px;

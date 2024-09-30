@@ -1,0 +1,50 @@
+@import "../../style/main.scss";
+
+.container-itens {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    padding: 5% 2%;
+    border-bottom: 1px solid var(--rose-100);
+    align-items: center;
+
+    .row{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .nome{
+        font-weight: bold;
+        color: var(--rose-900);
+        font-size: 1rem;
+    }
+
+    .valor{
+        display: flex;
+        gap: 15px;
+
+        p:nth-child(1) {
+            color: var(--red);
+            font-size: .9rem;
+        }
+
+        p:nth-child(2) {
+            color: var(--rose-300);
+            font-size: .9rem;
+        }
+
+        p:nth-child(3) {
+            font-size: .9rem;
+        }
+    }
+
+    img{
+        border: 1px solid var(--rose-300);
+        height: 15px;
+        padding: 2px;
+        border-radius: 15px;
+        
+    }
+}
+
