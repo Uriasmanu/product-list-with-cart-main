@@ -40,5 +40,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import './_inicialpage.scss'; // Importando todos os estilos do SCSS</style>
+@import './_InicialPage'; 
+@import './_inicialpageMobile.scss';
+</style>
 

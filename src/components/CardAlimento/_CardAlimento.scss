@@ -2,24 +2,28 @@
 
 .container-alimento {
   img {
-    width: 14rem;
+    width: 10rem;
     height: auto;
   }
 
   .adicionar {
     position: relative;
     top: -24px;
-    left: 42px;
-    width: 9rem;
+    left: 35px;
+    width: 6rem;
   }
 
   .categoria{
     color: var(--rose-300);
+    font-size: .7rem;
   }
   h4{
     color:var(--rose-900);
+    font-size: .8rem;
   }
   .preco{
     color: var(--red);
+    font-weight: bold;
+    font-size: .7rem;
   }
 }

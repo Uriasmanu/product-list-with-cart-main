@@ -45,5 +45,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import './_CardAlimento'
+@import './_CardAlimento';
+@import './_CardAlimentoMobile'
 </style>

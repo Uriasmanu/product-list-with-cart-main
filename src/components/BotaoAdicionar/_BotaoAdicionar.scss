@@ -4,18 +4,24 @@
   display: flex;
   gap: 10px;
   background: var(--rose-50);
-  padding: 4%;
+  padding: 2%;
   border-radius: 20px;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 40px;
+  height: 30px;
   box-sizing: border-box;
   border: solid 1px var(--rose-500);
   cursor: pointer;
 
+  img {
+    width: 15px;
+    height: auto;
+  }
+
   p {
     font-weight: bold;
+    font-size: 0.6rem;
   }
 }
 
@@ -23,23 +29,23 @@
   display: flex;
   gap: 10px;
   background: var(--red);
-  padding: 5%;
+  padding: 2%;
   border-radius: 20px;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 40px;
+  height: 30px;
   box-sizing: border-box;
   border: solid 1px hsl(12, 20%, 44%);
   cursor: pointer;
   justify-content: space-around;
 
   button {
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     border-radius: 18px;
-    padding: 4px;
-    border: solid 2px var(--rose-50);
+    padding: 2px;
+    border: solid 1.5px var(--rose-50);
     background: none;
     display: flex;
     align-items: center;
@@ -65,5 +71,82 @@
   p {
     font-weight: bold;
     color: var(--rose-50);
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 600px) {
+  .container-botao-adicionar {
+    display: flex;
+    gap: 10px;
+    background: var(--rose-50);
+    padding: 2%;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+    border: solid 1px var(--rose-500);
+    cursor: pointer;
+
+    img {
+      width: 20px;
+      height: auto;
+    }
+
+    p {
+      font-weight: bold;
+      font-size: 0.8rem;
+    }
+  }
+
+  .container-botao-adicionar-ativo {
+    display: flex;
+    gap: 10px;
+    background: var(--red);
+    padding: 2%;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+    border: solid 1px hsl(12, 20%, 44%);
+    cursor: pointer;
+    justify-content: space-around;
+
+    button {
+      width: 15px;
+      height: 15px;
+      border-radius: 18px;
+      padding: 2px;
+      border: solid 1.5px var(--rose-50);
+      background: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      &:hover {
+        fill: var(--red);
+        background: var(--rose-50);
+
+        img {
+          filter: invert(55%) sepia(15%) saturate(1200%) hue-rotate(345deg)
+            brightness(100%) contrast(100%);
+        }
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    p {
+      font-weight: bold;
+      color: var(--rose-50);
+      font-size: 0.8rem;
+    }
   }
 }

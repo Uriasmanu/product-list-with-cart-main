@@ -5,11 +5,13 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  width: 290px;
+  width: 14rem;
+  height: auto;
   gap: 30px;
 
   h3 {
     color: hsl(14, 86%, 42%);
+    font-size: 1rem;
   }
 
   .infos {
@@ -24,7 +26,14 @@
 
     p {
       color: hsl(14, 65%, 9%);
-      font-size: .8rem;
+      font-size: .7rem;
     }
+  }
+}
+
+@media (max-width: 600px) {
+  .container-carrinho {
+    width: 20rem;
+
   }
 }

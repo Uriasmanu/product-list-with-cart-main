@@ -1,0 +1,30 @@
+@media (max-width: 600px) {
+  .inicial-page {
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    padding: 5% 7%;
+    justify-content: space-around;
+    background: hsl(13, 31%, 94%);
+    flex-direction: column;
+
+    h1 {
+      font-weight: bold;
+      font-size: 2rem;
+    }
+
+    .pratos {
+      margin-top: 2%;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: 50vh;
+      padding: 5% 0%;
+      
+    }
+  }
+}

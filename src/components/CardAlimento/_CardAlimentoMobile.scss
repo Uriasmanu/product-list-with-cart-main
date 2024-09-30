@@ -1,0 +1,31 @@
+@import "../../style/main.scss";
+
+@media (max-width: 600px) {
+  .container-alimento {
+    img {
+      width: 20rem;
+      height: auto;
+    }
+
+    .adicionar {
+      position: relative;
+      top: -24px;
+      left: 85px;
+      width: 9rem;
+    }
+
+    .categoria{
+      color: var(--rose-300);
+      font-size: .9rem;
+    }
+    h4{
+      color:var(--rose-900);
+      font-size: 1rem;
+    }
+    .preco{
+      color: var(--red);
+      font-weight: bold;
+      font-size: .9rem;
+    }
+  }
+}
