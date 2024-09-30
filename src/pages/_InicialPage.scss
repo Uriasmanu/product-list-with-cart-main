@@ -3,9 +3,10 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    padding: 5% 0%;
+    padding: 5% 3%;
     justify-content: space-around;
     background: hsl(13, 31%, 94%);
+    gap: 10px;
 
     h1{
         font-weight: bold;
