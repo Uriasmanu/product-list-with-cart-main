@@ -2,24 +2,40 @@
   <div class="inicial-page">
     <div class="alimentos">
       <h1>Sobremesas</h1>
-      <BotaoAdicionar></BotaoAdicionar>
+      <div class="pratos">
+        <CardAlimento
+          v-for="(item, index) in sobremesas"
+          :key="index"
+          :name="item.name"
+          :category="item.category"
+          :preco="item.price"
+          :img="item.img"
+        />
+    </div>
     </div>
     <div class="carrinho">
-      <CarrinhoCompras></CarrinhoCompras>
+      <CarrinhoCompras/>
     </div>
   </div>
 </template>
 
 <script>
-import BotaoAdicionar from '@/components/BotaoAdicionar/BotaoAdicionar.vue';
+import CardAlimento from '@/components/CardAlimento/CardAlimento.vue';
 import CarrinhoCompras from '@/components/CarrinhoCompras/CarrinhoCompras.vue';
+import sobremesasData from '@/Json/sobremesas.json'
 
 export default {
   name: 'InicialPage',
   components: {
     CarrinhoCompras,
-    BotaoAdicionar
+    CardAlimento
+  },
+  data(){
+    return {
+      sobremesas: sobremesasData
+    }
   }
+
 }
 </script>
 

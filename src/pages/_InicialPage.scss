@@ -6,9 +6,23 @@
     padding: 5% 7%;
     justify-content: space-between;
     background: hsl(13, 31%, 94%);
+    
+    
 
     h1{
         font-weight: bold;
         font-size: 2rem;
+    }
+
+    .pratos {
+        margin-top: 2%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        box-sizing: border-box;
+        overflow-x: hidden; 
+        overflow-y: auto; 
+        height: 100%; 
+        padding: 5% 0%;
     }
 }

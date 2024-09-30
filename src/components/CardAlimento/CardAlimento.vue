@@ -1,12 +1,15 @@
 <template>
     <div class="container-alimento">
         <div>
-            <img src="" alt="">
-            <BotaoAdicionar></BotaoAdicionar>
+            <img :src="require(`@/assets/images/${img}.jpg`)" :alt="name">
+            <div class="adicionar">
+                <BotaoAdicionar />
+            </div>
+
         </div>
-        <p></p>
-        <h4></h4>
-        <p></p>
+        <p class="categoria">{{ category }}</p>
+        <h4>{{ name }}</h4>
+        <p class="preco">{{ preco }}</p>
     </div>
 </template>
 
@@ -18,8 +21,26 @@ export default {
     name: 'CardAlimento',
     components: {
         BotaoAdicionar
-    }
+    },
 
+    props: {
+        name: {
+            type: String,
+            required: true,
+        },
+        category: {
+            type: String,
+            required: true,
+        },
+        preco: {
+            type: String,
+            required: true,
+        },
+        img: {
+            type: String,
+            required: true,
+        },
+    }
 }
 </script>
 

@@ -1,1 +1,25 @@
 @import "../../style/main.scss";
+
+.container-alimento {
+  img {
+    width: 14rem;
+    height: auto;
+  }
+
+  .adicionar {
+    position: relative;
+    top: -24px;
+    left: 42px;
+    width: 9rem;
+  }
+
+  .categoria{
+    color: var(--rose-300);
+  }
+  h4{
+    color:var(--rose-900);
+  }
+  .preco{
+    color: var(--red);
+  }
+}
