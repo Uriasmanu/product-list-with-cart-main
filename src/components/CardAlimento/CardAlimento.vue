@@ -9,7 +9,7 @@
         </div>
         <p class="categoria">{{ category }}</p>
         <h4>{{ name }}</h4>
-        <p class="preco">{{ preco }}</p>
+        <p class="preco">R$ {{ preco.toFixed(2) }}</p>
     </div>
 </template>
 
@@ -33,7 +33,7 @@ export default {
             required: true,
         },
         preco: {
-            type: String,
+            type: Number,
             required: true,
         },
         img: {

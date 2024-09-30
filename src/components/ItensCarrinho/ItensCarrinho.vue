@@ -1,20 +1,40 @@
 <template>
     <div class="container-itens">
         <div class="row">
-            <p class="nome">classic tiramissu</p>
+            <p class="nome">{{ nomeSobremesa }}</p>
             <div class="valor">
-                <p>2x</p>
-                <p>@ R$ 5,50</p>
-                <p>R$ 11,00</p>
+                <p>{{ quantidade }}</p>
+                <p>@ {{ valorInicial }}</p>
+                <p>{{ valorFinal }}</p>
             </div>
         </div>
-        <img src="../../assets/images/icon-remove-item.svg" alt="icone remover">
+        <button>
+            <img src="../../assets/images/icon-remove-item.svg" alt="icone remover">
+        </button>
     </div>
 </template>
 
 <script>
 export default {
-    nome: "ItensCarrinho"
+    nome: "ItensCarrinho",
+    props: {
+        nomeSobremesa: {
+            type: String,
+            required: true,
+        },
+        quantidade: {
+            type: Number,
+            required: true,
+        },
+        valorInicial: {
+            type: String,
+            required: true,
+        },
+        valorFinal: {
+            type: String,
+            required: true,
+        },
+    }
 }
 
 </script>

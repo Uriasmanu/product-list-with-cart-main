@@ -2,55 +2,55 @@
     {
       "name": "Waffle com Frutas Vermelhas",
       "category": "Waffle",
-      "price": "R$ 6,50",
+      "price": 6.50,
       "img": "image-waffle-desktop"
     },
     {
       "name": "Crème Brûlée de Baunilha",
       "category": "Crème Brûlée",
-      "price": "R$ 7,00",
+      "price": 7.00,
       "img": "image-creme-brulee-desktop"
     },
     {
       "name": "Mix de Cinco Macarons",
       "category": "Macaron",
-      "price": "R$ 8,00",
+      "price": 8.00,
       "img": "image-macaron-desktop"
     },
     {
       "name": "Tiramisu Clássico",
       "category": "Tiramisu",
-      "price": "R$ 5,50",
+      "price": 5.50,
       "img": "image-tiramisu-desktop"
     },
     {
       "name": "Baklava de Pistache",
       "category": "Baklava",
-      "price": "R$ 4,00",
+      "price": 4.00,
       "img": "image-baklava-desktop"
     },
     {
       "name": "Torta de Limão com Merengue",
       "category": "Torta",
-      "price": "R$ 5,00",
+      "price": 5.00,
       "img": "image-meringue-desktop"
     },
     {
       "name": "Bolo Red Velvet",
       "category": "Bolo",
-      "price": "R$ 4,50",
+      "price": 4.50,
       "img": "image-cake-desktop"
     },
     {
       "name": "Brownie de Caramelo Salgado",
       "category": "Brownie",
-      "price": "R$ 4,50",
+      "price": 4.50,
       "img": "image-brownie-desktop"
     },
     {
       "name": "Panna Cotta de Baunilha",
       "category": "Panna Cotta",
-      "price": "R$ 6,50",
+      "price": 6.50,
       "img": "image-panna-cotta-desktop"
     }
   ]
