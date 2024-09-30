@@ -1,7 +1,28 @@
+@import '../../style/main.scss';
+
 .container-botao-adicionar{
     display: flex;
     gap: 10px;
-    background: hsl(20, 50%, 98%);
+    background: var(--rose-50); 
+    padding: 5%;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    box-sizing: border-box;
+    border: solid 1px var(--rose-500);
+    cursor: pointer;
+    display: none;
+
+    p{
+        font-weight: bold;
+    }
+}
+
+.container-botao-adicionar-ativo{
+    display: flex;
+    gap: 10px;
+    background: var(--red);
     padding: 5%;
     border-radius: 20px;
     align-items: center;
@@ -10,8 +31,18 @@
     box-sizing: border-box;
     border: solid 1px hsl(12, 20%, 44%);
     cursor: pointer;
+    justify-content: space-around;
+
+    img{
+        width: 18px;
+        height: 18px;
+        border-radius: 18px;
+        padding: 3%;
+        border: solid 2px var(--rose-50);
+    }
 
     p{
         font-weight: bold;
+        color: var(--rose-50);
     }
 }

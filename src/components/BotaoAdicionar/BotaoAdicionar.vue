@@ -1,7 +1,12 @@
 <template>
     <div class="container-botao-adicionar">
-        <img src="../../assets//images//icon-add-to-cart.svg" alt="">
+        <img src="../../assets/images/icon-add-to-cart.svg" alt="">
         <p>Adicionar</p>
+    </div>
+    <div class="container-botao-adicionar-ativo">
+        <img src="../../assets/images/icon-decrement-quantity.svg" alt="">
+        <p>1</p>
+        <img src="../../assets/images/icon-increment-quantity.svg" alt="">
     </div>
 </template>
 
