@@ -2,24 +2,14 @@
     "version": 2,
     "builds": [
       {
-        "src": "package.json",
-        "use": "@vercel/node"
+        "src": "product-list-with-cart-main.csproj",
+        "use": "@vercel/dotnet"
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "/api/index.js"
+        "dest": "product-list-with-cart-main.dll"
       }
-    ],
-    "env": {
-      "MY_ENV_VARIABLE": "value"
-    },
-    "functions": {
-      "api/*.js": {
-        "memory": 1024,
-        "maxDuration": 10
-      }
-    }
+    ]
   }
-  
