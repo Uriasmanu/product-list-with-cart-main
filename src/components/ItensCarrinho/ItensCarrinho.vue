@@ -8,7 +8,7 @@
                 <p>{{ valorFinal }}</p>
             </div>
         </div>
-        <button>
+        <button @click="removerItem">
             <img src="../../assets/images/icon-remove-item.svg" alt="icone remover">
         </button>
     </div>
@@ -27,14 +27,21 @@ export default {
             required: true,
         },
         valorInicial: {
-            type: String,
+            type: Number,
             required: true,
         },
         valorFinal: {
             type: String,
             required: true,
         },
+    },
+
+    methods: {
+        removerItem() {
+            this.$emit('removerItem', { name: this.nomeSobremesa });
+        }
     }
+
 }
 
 </script>

@@ -5,14 +5,15 @@
         <div class="infos">
             <ItensCarrinho v-for="(item, index) in carrinho" :key="index" :nomeSobremesa="item.name"
                 :quantidade="item.quantidade" :valorInicial="item.price"
-                :valorFinal="(item.price * item.quantidade).toFixed(2)" />
+                :valorFinal="(item.price * item.quantidade).toFixed(2)" @removerItem="removerItem(item.name)" />
+
         </div>
         <div class="total">
             <p>Valor Total</p>
-            <p>R$ 46.50{{valorTotal}}</p>
+            <p>R$ {{ valorTotal }}</p>
         </div>
-        <DeliveryComponent/>
-        <BotaoConfirmaPedido/>
+        <DeliveryComponent />
+        <BotaoConfirmaPedido />
     </div>
 
     <div class="container-carrinho" v-else>
@@ -46,7 +47,11 @@ export default {
             carrinho: [],
         }
     },
-
+    computed: {
+        valorTotal() {
+            return this.carrinho.reduce((acc, item) => acc + (item.price * item.quantidade), 0).toFixed(2);
+        }
+    },
     created() {
         eventBus.on('adicionarItem', this.adicionarItem); // Escuta o evento adicionarItem
     },
@@ -60,12 +65,22 @@ export default {
                 this.carrinho.push({ ...item, quantidade: 1 }); // Adiciona o item ao carrinho
             }
             this.quantidadeItens = this.carrinho.reduce((acc, i) => acc + i.quantidade, 0); // Atualiza a quantidade total
+        },
+
+        removerItem(nomeSobremesa) {
+            const index = this.carrinho.findIndex(i => i.name === nomeSobremesa);
+            if (index !== -1) {
+                this.carrinho.splice(index, 1);
+            }
+
+            this.quantidadeItens = this.carrinho.reduce((acc, i) => acc + i.quantidade, 0);
         }
     },
 
     beforeUnmount() {
         eventBus.off('adicionarItem', this.adicionarItem); // Limpa o listener ao destruir o componente
     },
+
 }
 </script>
 
