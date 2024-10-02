@@ -5,8 +5,8 @@
         <div class="infos">
             <ItensCarrinho v-for="(item, index) in carrinho" :key="index" :nomeSobremesa="item.name"
                 :quantidade="item.quantidade" :valorInicial="item.price"
-                :valorFinal="(item.price * item.quantidade).toFixed(2)" @removerItem="removerItem(item.name)" />
-
+                :valorFinal="(item.price * item.quantidade).toFixed(2)" @removerItem="removerItem(item.name)"
+                @subtrairItem="subtrairItem(item.name)" />
         </div>
         <div class="total">
             <p>Valor Total</p>
@@ -32,7 +32,6 @@ import ItensCarrinho from '../ItensCarrinho/ItensCarrinho.vue';
 import DeliveryComponent from '../Delivery/DeliveryComponent.vue';
 import BotaoConfirmaPedido from '../BotaoConfirmaPedido/BotaoConfirmaPedido.vue';
 
-
 export default {
     name: 'CarrinhoCompras',
     components: {
@@ -49,12 +48,14 @@ export default {
     },
     computed: {
         valorTotal() {
-            return this.carrinho.reduce((acc, item) => acc + (item.price * item.quantidade), 0).toFixed(2);
+            const total = this.carrinho.reduce((acc, item) => acc + (item.price * item.quantidade), 0).toFixed(2);
+            return total;
         }
     },
     created() {
         eventBus.on('adicionarItem', this.adicionarItem); // Escuta o evento adicionarItem
         eventBus.on('removerItem', this.removerItem);
+        eventBus.on('subtrairItem', this.subtrairItem);
     },
 
     methods: {
@@ -64,8 +65,10 @@ export default {
                 existingItem.quantidade++; // Aumenta a quantidade se o item já estiver no carrinho
             } else {
                 this.carrinho.push({ ...item, quantidade: 1 }); // Adiciona o item ao carrinho
+
             }
             this.quantidadeItens = this.carrinho.reduce((acc, i) => acc + i.quantidade, 0); // Atualiza a quantidade total
+
         },
 
         removerItem(nomeSobremesa) {
@@ -75,12 +78,32 @@ export default {
             }
 
             this.quantidadeItens = this.carrinho.reduce((acc, i) => acc + i.quantidade, 0);
+
+        },
+
+        subtrairItem(nomeSobremesa) {
+            const existingItem = this.carrinho.find(i => i.name === nomeSobremesa); // Busca pelo nome da sobremesa
+            if (existingItem) {
+                existingItem.quantidade--; // Diminui a quantidade do item
+
+
+                if (existingItem.quantidade <= 0) {
+                    this.carrinho = this.carrinho.filter(i => i.name !== existingItem.name); // Remove o item do carrinho
+                }
+            }
+
+            this.atualizarQuantidadeTotal(); // Atualiza a quantidade total após subtração
+        },
+
+        atualizarQuantidadeTotal() {
+            this.quantidadeItens = this.carrinho.reduce((acc, i) => acc + i.quantidade, 0); // Atualiza a quantidade total
         }
     },
 
     beforeUnmount() {
         eventBus.off('adicionarItem', this.adicionarItem); // Limpa o listener ao destruir o componente
         eventBus.off('removerItem', this.removerItem);
+        eventBus.off('subtrairItem', this.subtrairItem);
     },
 
 }

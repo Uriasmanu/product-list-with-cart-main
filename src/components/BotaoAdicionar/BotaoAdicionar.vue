@@ -4,7 +4,7 @@
         <p>Adicionar</p>
     </div>
     <div v-else class="container-botao-adicionar-ativo">
-        <button @click="remover">
+        <button @click="removerDoCarrinho">
             <img src="../../assets/images/icon-decrement-quantity.svg" alt="icone remover">
         </button>
         <p>{{ valor }}</p>
@@ -41,18 +41,26 @@ export default {
         ativarBotao() {
             this.ativo = false;
             this.emitirEventoAdicionar();
+            
         },
 
         adicionar() {
             this.valor++;
             this.emitirEventoAdicionar(); // Emitir evento para adicionar
+           
         },
 
-        remover() {
+        removerDoCarrinho() {
+            // Método para remover do carrinho e gerenciar a quantidade
             if (this.valor > 1) {
-                this.valor--;
+                this.valor--; // Diminui a quantidade no carrinho
+                this.emitirEventoSubtrair();
+            } else { 
+                this.ativo = true; // Reativa o botão de "Adicionar"
+                this.emitirEventoRemover(); // Remove o item do carrinho
             }
         },
+
 
         emitirEventoAdicionar() {
             eventBus.emit('adicionarItem', {
@@ -64,7 +72,12 @@ export default {
 
         emitirEventoRemover() {
             eventBus.emit('removerItem', this.name);
+            
         },
+
+        emitirEventoSubtrair(){
+            eventBus.emit('subtrairItem', this.name);
+        }
     },
 };
 </script>
