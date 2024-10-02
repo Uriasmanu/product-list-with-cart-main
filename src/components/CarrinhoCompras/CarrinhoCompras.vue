@@ -46,6 +46,7 @@ export default {
             carrinho: [],
         }
     },
+
     computed: {
         valorTotal() {
             const total = this.carrinho.reduce((acc, item) => acc + (item.price * item.quantidade), 0).toFixed(2);
@@ -74,11 +75,13 @@ export default {
         removerItem(nomeSobremesa) {
             const index = this.carrinho.findIndex(i => i.name === nomeSobremesa);
             if (index !== -1) {
+                const itemRemovido = this.carrinho[index]; // Guarde o item para log
                 this.carrinho.splice(index, 1);
+                this.quantidadeItens = this.carrinho.reduce((acc, i) => acc + i.quantidade, 0);
+
+                // Emitir evento para notificar que um item foi removido
+                eventBus.emit('itemRemovido', itemRemovido.name); // Notifica o item removido
             }
-
-            this.quantidadeItens = this.carrinho.reduce((acc, i) => acc + i.quantidade, 0);
-
         },
 
         subtrairItem(nomeSobremesa) {

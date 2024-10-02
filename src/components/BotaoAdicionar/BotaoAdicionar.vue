@@ -37,6 +37,10 @@ export default {
         };
     },
 
+    created() {
+        eventBus.on('itemRemovido', this.handleItemRemovido); // Adiciona escutador para removerItem
+    },
+
     methods: {
         ativarBotao() {
             this.ativo = false;
@@ -59,8 +63,14 @@ export default {
                 this.ativo = true; // Reativa o botão de "Adicionar"
                 this.emitirEventoRemover(); // Remove o item do carrinho
             }
+
         },
 
+        handleItemRemovido(nomeSobremesa) {
+            if (nomeSobremesa === this.name) {
+                this.ativo = true; // Reativa o botão de "Adicionar" se o item removido for o atual
+            }
+        },
 
         emitirEventoAdicionar() {
             eventBus.emit('adicionarItem', {
@@ -78,6 +88,9 @@ export default {
         emitirEventoSubtrair(){
             eventBus.emit('subtrairItem', this.name);
         }
+    },
+    beforeUnmount() {
+        eventBus.off('removerItem', this.handleRemoverItem); // Limpa o listener ao destruir o componente
     },
 };
 </script>
