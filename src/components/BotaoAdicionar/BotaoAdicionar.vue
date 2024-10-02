@@ -4,12 +4,13 @@
         <p>Adicionar</p>
     </div>
     <div v-else class="container-botao-adicionar-ativo">
-        <button @click="remover"><img src="../../assets/images/icon-decrement-quantity.svg"
-                alt="icone remover"></button>
+        <button @click="remover">
+            <img src="../../assets/images/icon-decrement-quantity.svg" alt="icone remover">
+        </button>
         <p>{{ valor }}</p>
-        <button @click="adicionar"><img src="../../assets/images/icon-increment-quantity.svg"
-                alt="icone adicionar"></button>
-
+        <button @click="adicionar">
+            <img src="../../assets/images/icon-increment-quantity.svg" alt="icone adicionar">
+        </button>
     </div>
 </template>
 
@@ -17,7 +18,7 @@
 import { eventBus } from '@/scripts/eventBus';
 
 export default {
-    nome: 'BotaoAdicionar',
+    name: 'BotaoAdicionar', // Corrigi de "nome" para "name"
     props: {
         name: {
             type: String,
@@ -32,52 +33,42 @@ export default {
     data() {
         return {
             valor: 1,
-            ativo: true
-        }
+            ativo: true,
+        };
     },
 
     methods: {
         ativarBotao() {
-            this.ativo = false
-            
-            eventBus.emit('adicionarItem', {
-                name: this.name,
-                price: this.price,
-                quantity: this.valor
-            }
-
-            )
+            this.ativo = false;
+            this.emitirEventoAdicionar();
         },
 
         adicionar() {
             this.valor++;
-            
-            eventBus.emit('adicionarItem', {
-                name: this.name,
-                price: this.price,
-                quantity: this.valor
-            }
-
-            )
-
+            this.emitirEventoAdicionar(); // Emitir evento para adicionar
         },
 
         remover() {
             if (this.valor > 1) {
                 this.valor--;
-
-            } else {
-                this.ativo = true;
             }
         },
 
-    }
-}
+        emitirEventoAdicionar() {
+            eventBus.emit('adicionarItem', {
+                name: this.name,
+                price: this.price,
+                quantity: this.valor, // Sempre passa a quantidade atual
+            });
+        },
 
-
-
+        emitirEventoRemover() {
+            eventBus.emit('removerItem', this.name);
+        },
+    },
+};
 </script>
 
 <style lang="scss" scoped>
-@import './_BotaoAdicionar'
+@import './_BotaoAdicionar';
 </style>

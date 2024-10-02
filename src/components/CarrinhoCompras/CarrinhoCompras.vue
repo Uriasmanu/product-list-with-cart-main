@@ -54,6 +54,7 @@ export default {
     },
     created() {
         eventBus.on('adicionarItem', this.adicionarItem); // Escuta o evento adicionarItem
+        eventBus.on('removerItem', this.removerItem);
     },
 
     methods: {
@@ -79,6 +80,7 @@ export default {
 
     beforeUnmount() {
         eventBus.off('adicionarItem', this.adicionarItem); // Limpa o listener ao destruir o componente
+        eventBus.off('removerItem', this.removerItem);
     },
 
 }
