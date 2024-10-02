@@ -1,20 +1,21 @@
 <template>
-    <div class="container-carrinho-itens"  v-if="carrinho.length > 0">
+    <div class="container-carrinho-itens" v-if="carrinho.length > 0">
 
         <h3>Seu Carrinho({{ quantidadeItens }})</h3>
         <div class="infos">
-            <ItensCarrinho 
-                v-for="(item, index) in carrinho"
-                :key="index"
-                :nomeSobremesa = "item.name"
-                :quantidade = "item.quantidade"
-                :valorInicial = "item.price"
-                :valorFinal = "(item.price * item.quantidade).toFixed(2)"
-            />
+            <ItensCarrinho v-for="(item, index) in carrinho" :key="index" :nomeSobremesa="item.name"
+                :quantidade="item.quantidade" :valorInicial="item.price"
+                :valorFinal="(item.price * item.quantidade).toFixed(2)" />
         </div>
+        <div class="total">
+            <p>Valor Total</p>
+            <p>R$ 46.50{{valorTotal}}</p>
+        </div>
+        <DeliveryComponent/>
+        <BotaoConfirmaPedido/>
     </div>
 
-    <div class="container-carrinho"  v-else>
+    <div class="container-carrinho" v-else>
 
         <h3>Seu Carrinho(0)</h3>
         <div class="infos">
@@ -27,12 +28,16 @@
 <script>
 import { eventBus } from '@/scripts/eventBus';
 import ItensCarrinho from '../ItensCarrinho/ItensCarrinho.vue';
+import DeliveryComponent from '../Delivery/DeliveryComponent.vue';
+import BotaoConfirmaPedido from '../BotaoConfirmaPedido/BotaoConfirmaPedido.vue';
 
 
 export default {
     name: 'CarrinhoCompras',
     components: {
-        ItensCarrinho
+        ItensCarrinho,
+        DeliveryComponent,
+        BotaoConfirmaPedido,
     },
 
     data() {

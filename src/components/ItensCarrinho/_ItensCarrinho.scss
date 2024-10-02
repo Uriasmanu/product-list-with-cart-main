@@ -17,7 +17,7 @@
   .nome {
     font-weight: bold;
     color: var(--rose-900);
-    font-size: 1rem;
+    font-size: .8rem;
   }
 
   .valor {
@@ -26,16 +26,16 @@
 
     p:nth-child(1) {
       color: var(--red);
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
 
     p:nth-child(2) {
       color: var(--rose-300);
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
 
     p:nth-child(3) {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
   }
 

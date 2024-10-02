@@ -1,0 +1,21 @@
+@import "../../style/main.scss";
+
+.container-delivery{
+    background: var(--rose-100);
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    padding: 3.5%;
+    align-items: center;
+    border-radius: 5px;
+    margin-top: 3%;
+
+    p{
+        font-size: .7rem;
+        color: var(--rose-500);
+
+        strong{
+            color: var(--rose-900);
+        }
+    }
+}
