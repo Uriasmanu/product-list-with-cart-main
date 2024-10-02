@@ -3,7 +3,7 @@
         <div>
             <img :src="require(`@/assets/images/${img}.jpg`)" :alt="name">
             <div class="adicionar">
-                <BotaoAdicionar />
+                <BotaoAdicionar :name="name" :price="preco" />
             </div>
 
         </div>

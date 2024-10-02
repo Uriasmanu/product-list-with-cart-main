@@ -14,8 +14,21 @@
 </template>
 
 <script>
+import { eventBus } from '@/scripts/eventBus';
+
 export default {
     nome: 'BotaoAdicionar',
+    props: {
+        name: {
+            type: String,
+            required: true,
+        },
+        price: {
+            type: Number,
+            required: true,
+        },
+    },
+
     data() {
         return {
             valor: 1,
@@ -26,10 +39,39 @@ export default {
     methods: {
         ativarBotao() {
             this.ativo = false
+
+            // Exibe os dados no console
+            console.log('Item Adicionado:', {
+                name: this.name,
+                price: this.price,
+                quantity: this.valor
+            });
+            eventBus.emit('adicionarItem', {
+                name: this.name,
+                price: this.price,
+                quantity: this.valor
+            }
+
+            )
         },
 
         adicionar() {
             this.valor++;
+
+            // Exibe os dados no console
+            console.log('Item Adicionado:', {
+                name: this.name,
+                price: this.price,
+                quantity: this.valor
+            });
+            eventBus.emit('adicionarItem', {
+                name: this.name,
+                price: this.price,
+                quantity: this.valor
+            }
+
+            )
+
         },
 
         remover() {
@@ -39,7 +81,7 @@ export default {
             } else {
                 this.ativo = true;
             }
-        }
+        },
 
     }
 }
