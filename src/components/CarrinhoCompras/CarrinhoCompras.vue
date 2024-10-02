@@ -4,7 +4,7 @@
         <h3>Seu Carrinho({{ quantidadeItens }})</h3>
         <div class="infos">
             <ItensCarrinho 
-                v-for="(item, index) in itensCarrinho"
+                v-for="(item, index) in carrinho"
                 :key="index"
                 :nomeSobremesa = "item.name"
                 :quantidade = "item.quantidade"
@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import { eventBus } from '@/scripts/eventBus';
 import ItensCarrinho from '../ItensCarrinho/ItensCarrinho.vue';
 
 
@@ -41,19 +42,25 @@ export default {
         }
     },
 
-    methods: {
-        adicionarAoCarrinho(item){
-            const itemExiste = this.itensCarrinho.find(i => i.name === item.name);
-            if(itemExiste){
-                itemExiste.quantidade ++;
-            }else{
-                this.itensCarrinho.push({...item, quantidade: 1});
-            }
-            this.quantidadeItens++;
-        }
-
+    created() {
+        eventBus.on('adicionarItem', this.adicionarItem); // Escuta o evento adicionarItem
     },
 
+    methods: {
+        adicionarItem(item) {
+            const existingItem = this.carrinho.find(i => i.name === item.name);
+            if (existingItem) {
+                existingItem.quantidade++; // Aumenta a quantidade se o item já estiver no carrinho
+            } else {
+                this.carrinho.push({ ...item, quantidade: 1 }); // Adiciona o item ao carrinho
+            }
+            this.quantidadeItens = this.carrinho.reduce((acc, i) => acc + i.quantidade, 0); // Atualiza a quantidade total
+        }
+    },
+
+    beforeUnmount() {
+        eventBus.off('adicionarItem', this.adicionarItem); // Limpa o listener ao destruir o componente
+    },
 }
 </script>
 

@@ -3,7 +3,7 @@
         <div class="row">
             <p class="nome">{{ nomeSobremesa }}</p>
             <div class="valor">
-                <p>{{ quantidade }}</p>
+                <p>{{ quantidade }}x</p>
                 <p>@ {{ valorInicial }}</p>
                 <p>{{ valorFinal }}</p>
             </div>

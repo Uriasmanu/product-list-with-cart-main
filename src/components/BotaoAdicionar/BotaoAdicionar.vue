@@ -39,13 +39,7 @@ export default {
     methods: {
         ativarBotao() {
             this.ativo = false
-
-            // Exibe os dados no console
-            console.log('Item Adicionado:', {
-                name: this.name,
-                price: this.price,
-                quantity: this.valor
-            });
+            
             eventBus.emit('adicionarItem', {
                 name: this.name,
                 price: this.price,
@@ -57,13 +51,7 @@ export default {
 
         adicionar() {
             this.valor++;
-
-            // Exibe os dados no console
-            console.log('Item Adicionado:', {
-                name: this.name,
-                price: this.price,
-                quantity: this.valor
-            });
+            
             eventBus.emit('adicionarItem', {
                 name: this.name,
                 price: this.price,
