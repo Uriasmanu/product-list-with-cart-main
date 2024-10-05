@@ -49,9 +49,6 @@ export default {
         const carrinho = localStorage.getItem('carrinhoConfirmado');
         if (carrinho) {
             this.carrinhoConfirmado = JSON.parse(carrinho);
-            console.log('Itens carregados no carrinhoConfirmado:', this.carrinhoConfirmado);
-        } else {
-            console.log('Nenhum item encontrado no localStorage.');
         }
     },
 }

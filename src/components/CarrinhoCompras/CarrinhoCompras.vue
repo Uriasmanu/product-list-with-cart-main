@@ -105,13 +105,12 @@ export default {
         confirmarPedido() {
             // Armazena o conteúdo atual do carrinho no localStorage
             localStorage.setItem('carrinhoConfirmado', JSON.stringify(this.carrinho));
-
-            // Exibe os itens no console
-            console.log('Itens armazenados no localStorage:', JSON.parse(localStorage.getItem('carrinhoConfirmado')));
-
             // Emite para o componente pai que o pedido foi confirmado
             this.$emit('pedidoConfirmado');
         },
+
+
+
     },
 
     beforeUnmount() {

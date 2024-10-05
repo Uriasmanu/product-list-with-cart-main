@@ -22,10 +22,22 @@ import sobremesasJson from '@/Json/sobremesas.json';
 export default {
     name: 'ItensDoPedidoFinal',
     props: {
-        nomeSobremesa: String,
-        quantidade: Number,
-        valorInicial: Number,
-        valorFinal: String,
+        nomeSobremesa: { // Mantenha o mesmo nome que está sendo usado no template
+            type: String,
+            required: true,
+        },
+        quantidade: {
+            type: Number,
+            required: true, // Adicione required se for obrigatório
+        },
+        valorInicial: {
+            type: Number,
+            required: true, // Adicione required se for obrigatório
+        },
+        valorFinal: {
+            type: String,
+            required: true, // Adicione required se for obrigatório
+        },
     },
 
     data() {

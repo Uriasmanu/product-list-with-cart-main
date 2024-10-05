@@ -30,9 +30,11 @@ export default {
     CardAlimento,
     CardOrdenConfirmada,
   },
+
   created() {
     // Escutando o evento 'pedidoConfirmado'
     eventBus.on('pedidoConfirmado', this.exibirOverlay);
+    eventBus.on('finaliazarPedido', this.fecharOverlay);
   },
   data() {
     return {
@@ -45,9 +47,15 @@ export default {
     exibirOverlay() {
       this.showOverlay = true; // Atualiza o estado para mostrar a overlay
     },
+
+    fecharOverlay(){
+      this.showOverlay = false;
+    },
+
   },
   beforeUnmount() {
     eventBus.off('pedidoConfirmado', this.exibirOverlay); // Limpa o listener ao destruir o componente
+    eventBus.off('finaliazarPedido', this.fecharOverlay);
   },
 
 }
