@@ -1,2 +1,5 @@
 import mitt from 'mitt';
-export const eventBus = mitt();
+
+const eventBus = mitt();
+
+export { eventBus };

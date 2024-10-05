@@ -57,6 +57,7 @@ export default {
         eventBus.on('adicionarItem', this.adicionarItem); // Escuta o evento adicionarItem
         eventBus.on('removerItem', this.removerItem);
         eventBus.on('subtrairItem', this.subtrairItem);
+        eventBus.on('pedidoConfirmado', this.confirmarPedido);
     },
 
     methods: {
@@ -100,13 +101,18 @@ export default {
 
         atualizarQuantidadeTotal() {
             this.quantidadeItens = this.carrinho.reduce((acc, i) => acc + i.quantidade, 0); // Atualiza a quantidade total
-        }
+        },
+        confirmarPedido() {
+            this.$emit('pedidoConfirmado');  // Emite para o componente pai que o pedido foi confirmado
+            
+        },
     },
 
     beforeUnmount() {
         eventBus.off('adicionarItem', this.adicionarItem); // Limpa o listener ao destruir o componente
         eventBus.off('removerItem', this.removerItem);
         eventBus.off('subtrairItem', this.subtrairItem);
+        eventBus.off('pedidoConfirmado', this.confirmarPedido); 
     },
 
 }
