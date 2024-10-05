@@ -1,7 +1,7 @@
 <template>
     <div class="container-alimento">
         <div>
-            <img :src="require(`@/assets/images/${img}.jpg`)" :alt="name">
+            <img :src="require(`@/assets/images/${img}-desktop.jpg`)" :alt="name">
             <div class="adicionar">
                 <BotaoAdicionar :name="name" :price="preco" />
             </div>
