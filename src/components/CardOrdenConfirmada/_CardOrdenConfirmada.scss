@@ -59,4 +59,13 @@
       }
     }
   }
+  
+}
+
+@media (max-width: 600px) {
+    .container-ordem {
+        width: 100vw;
+        position: relative;
+        top: 16vh;
+    }
 }
