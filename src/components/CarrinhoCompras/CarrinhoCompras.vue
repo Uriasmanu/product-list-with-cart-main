@@ -103,8 +103,14 @@ export default {
             this.quantidadeItens = this.carrinho.reduce((acc, i) => acc + i.quantidade, 0); // Atualiza a quantidade total
         },
         confirmarPedido() {
-            this.$emit('pedidoConfirmado');  // Emite para o componente pai que o pedido foi confirmado
-            
+            // Armazena o conteúdo atual do carrinho no localStorage
+            localStorage.setItem('carrinhoConfirmado', JSON.stringify(this.carrinho));
+
+            // Exibe os itens no console
+            console.log('Itens armazenados no localStorage:', JSON.parse(localStorage.getItem('carrinhoConfirmado')));
+
+            // Emite para o componente pai que o pedido foi confirmado
+            this.$emit('pedidoConfirmado');
         },
     },
 
@@ -112,7 +118,7 @@ export default {
         eventBus.off('adicionarItem', this.adicionarItem); // Limpa o listener ao destruir o componente
         eventBus.off('removerItem', this.removerItem);
         eventBus.off('subtrairItem', this.subtrairItem);
-        eventBus.off('pedidoConfirmado', this.confirmarPedido); 
+        eventBus.off('pedidoConfirmado', this.confirmarPedido);
     },
 
 }

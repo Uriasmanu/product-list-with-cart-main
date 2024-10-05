@@ -1,0 +1,53 @@
+@import "../../style/main.scss";
+
+.ItensDoPedidoFinal {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--rose-50);
+
+  .container-pedido {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 80%;
+    padding: 0.7rem 0;
+    
+  }
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .infos {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .nome {
+    font-weight: bold;
+    color: var(--rose-900);
+    font-size: 0.7rem;
+  }
+
+  .valor {
+    display: flex;
+    gap: 15px;
+
+    p:nth-child(1) {
+      color: var(--red);
+      font-size: 0.7rem;
+    }
+
+    p:nth-child(2) {
+      color: var(--rose-300);
+      font-size: 0.7rem;
+    }
+  }
+
+  p {
+    font-size: 0.7rem;
+    font-weight: bold;
+
+  }
+}
